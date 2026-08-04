@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kafka Bintang Timora — An Unofficial Tribute</title>
+<meta name="description" content="An unofficial one-page fan tribute experience dedicated to Kafka Bintang Timora.">
+
+<!-- ===== CSS EXTERNAL ===== -->
+<link rel="stylesheet" href="style.css">
+
+<!-- ===== FONTS ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===== GSAP ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- ===== AMBIENT BACKGROUND ===== -->
+<div class="ambient">
+  <canvas id="stars"></canvas>
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="aurora a3"></div>
+</div>
+
+<!-- ===== CUSTOM CURSOR ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ===== LOADER ===== -->
+<div class="loader" id="loader">
+  <div class="loader-mark">Kafka Bintang Timora</div>
+  <div class="loader-text">the handsome man with the sweetest smile…</div>
+  <div class="loader-bar"><span id="loaderFill"></span></div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">K.B.T.</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero" class="nav-close">Home</a></li>
+    <li><a href="#about" class="nav-close">About</a></li>
+    <li><a href="#journey" class="nav-close">Journey</a></li>
+    <li><a href="#gallery" class="nav-close">Gallery</a></li>
+    <li><a href="#videos" class="nav-close">Videos</a></li>
+    <li><a href="#admire" class="nav-close">Admire</a></li>
+    <li><a href="#quotes" class="nav-close">Quotes</a></li>
+    <li><a href="#posts" class="nav-close">Posts</a></li>
+    <li><a href="#music" class="nav-close">Music</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-frame"></div>
+  <div class="hero-eyebrow reveal">Unofficial Tribute</div>
+  <h1 class="hero-title reveal">Kafka <span id="parallaxTitle">Bintang Timora</span></h1>
+  <p class="hero-sub reveal">More than admiration — a source of inspiration.</p>
+  <a href="#about" class="hero-cta reveal">Explore</a>
+  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="about">
+    <div class="about-img-wrap reveal">
+      <!-- ===== 📸 FOTO: Ganti src dengan URL gambar Kafka ===== -->
+      <img class="about-img" id="aboutImg" src="">
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow reveal">About Kafka</span>
+      <h2 class="headline reveal">A presence that feels <b>quietly extraordinary.</b></h2>
+      <p class="lede reveal">This corner of the internet exists to gather the small, luminous moments — placeholder biography text sits here until replaced with real, verified details.</p>
+      <p class="lede reveal">Built by a fan, for fans, with care in every pixel and every transition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY ===== -->
+<section id="journey">
+  <span class="eyebrow reveal">Journey</span>
+  <h2 class="headline reveal">A story told <b>in chapters.</b></h2>
+  <p class="lede reveal">Click any chapter to expand it.</p>
+  <div class="timeline" id="timelineList"></div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <span class="eyebrow reveal">Gallery</span>
+  <h2 class="headline reveal">The visual <b>centerpiece.</b></h2>
+  <p class="lede reveal">Placeholder frames — replace every image with real, rights-cleared photography.</p>
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carouselTrack"></div>
+  </div>
+  <div class="gallery-sub">
+    <h3 class="headline" style="font-size:clamp(22px,3vw,32px);">Complete <b>Gallery</b></h3>
+    <div class="masonry" id="masonryGrid"></div>
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-top">
+    <div class="lb-btn" id="lightboxClose">Close ✕</div>
+    <div class="lb-actions">
+      <a class="lb-btn" id="lbDownload" download>Download</a>
+      <div class="lb-btn" id="lbShare">Share</div>
+    </div>
+  </div>
+  <div class="lightbox-nav prev" id="lbPrev">‹</div>
+  <div class="lightbox-stage"><img id="lightboxImg" src=""></div>
+  <div class="lightbox-nav next" id="lbNext">›</div>
+</div>
+
+<!-- ===== VIDEOS ===== -->
+<section id="videos">
+  <span class="eyebrow reveal">Videos</span>
+  <h2 class="headline reveal">Watch the <b>moments move.</b></h2>
+  <div class="video-grid" id="videoGrid"></div>
+</section>
+
+<!-- ===== VIDEO MODAL ===== -->
+<div class="video-modal" id="videoModal">
+  <div class="lb-btn" id="videoClose" style="position:absolute;top:30px;right:5vw;">Close ✕</div>
+  <div class="video-modal-stage" id="videoStage"></div>
+</div>
+
+<!-- ===== WHY I ADMIRE ===== -->
+<section id="admire">
+  <span class="eyebrow reveal">Why I Admire Kafka</span>
+  <h2 class="headline reveal">Reasons that go <b>beyond the surface.</b></h2>
+  <div class="admire-grid" id="admireGrid"></div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section id="quotes">
+  <span class="eyebrow reveal">Quotes</span>
+  <h2 class="headline reveal">Words worth <b>saving.</b></h2>
+  <p class="lede reveal">Sample text — replace with verified, real quotations before publishing.</p>
+  <div class="quote-masonry" id="quoteGrid"></div>
+</section>
+
+<!-- ===== LATEST POSTS ===== -->
+<section id="posts">
+  <span class="eyebrow reveal">Latest Posts</span>
+  <h2 class="headline reveal">Fresh from the <b>feed.</b></h2>
+  <div class="post-grid" id="postGrid"></div>
+</section>
+
+<!-- ===== MUSIC ===== -->
+<section id="music">
+  <span class="eyebrow reveal">Music</span>
+  <h2 class="headline reveal">A playlist to <b>match the mood.</b></h2>
+  <div class="music-grid" id="musicGrid"></div>
+</section>
+
+<!-- ===== ENDING ===== -->
+<section class="ending" id="ending">
+  <div class="ending-bg"></div>
+  <div class="mono-tag reveal" style="position:relative;z-index:2;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,247,250,.4);">— Closing Note —</div>
+  <h2 class="ending-title reveal">Thank you for <span>visiting.</span></h2>
+  <p class="ending-sub reveal">Keep supporting Kafka.</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-row">
+    <div class="foot-logo">Kafka Bintang Timora</div>
+    <ul class="foot-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#journey">Journey</a></li>
+    </ul>
+  </div>
+  <p class="foot-disclaimer">This is an unofficial fan website created for learning and appreciation purposes. It is not affiliated with, endorsed by, or representative of the person it is dedicated to. All placeholder imagery, quotes, biography text, video embeds, and songs are illustrative examples — replace them with real, rights-cleared content before any public use.</p>
+  <p class="foot-credit">Made by Kafka Girlfriend.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script src="script.js"></script>
+</body>
+</html>
