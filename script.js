@@ -181,7 +181,13 @@ const JOURNEY_DATA = [
    💜 SECTION 6: WHY I ADMIRE
    ============================================================ */
 
-
+const ADMIRE_DATA = [
+  { id: 1, title: 'Dedication', description: 'A visible, consistent effort behind every appearance — placeholder text.' },
+  { id: 2, title: 'Authenticity', description: 'A presence that feels genuine rather than performed — placeholder text.' },
+  { id: 3, title: 'Growth', description: 'Progress that has been worked for, not simply given — placeholder text.' },
+  { id: 4, title: 'Kindness', description: 'Small gestures that leave a lasting impression — placeholder text.' },
+  { id: 5, title: 'Craft', description: 'An attention to detail that shows in every small moment — placeholder text.' },
+  { id: 6, title: 'Inspiration', description: 'A reason to keep showing up and trying — placeholder text.' }
 ];
 
 /* ============================================================
